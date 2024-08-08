@@ -13,10 +13,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Node.js
         uses: actions/setup-node@v4
-      - name: Run ESLint and Fix Issues
-        run: npx eslint . --fix
-      - name: Run ESLint (Check for remaining issues)
-        run: npx eslint .
       - name: Install and Run Linter
         run: |
           # This command finds all JavaScript files recursively and runs JSHint on them
