@@ -23,7 +23,7 @@ const upload = multer({ storage: storage })
 
 
 // Get all secondChanceItems
-router.get('/', async (req,res,next) => {
+router.get('/', async(req, res, next) => {
     logger.info('/ called')
     try {
         //Step 2: task 1 - insert code here
@@ -42,7 +42,7 @@ router.get('/', async (req,res,next) => {
 });
 
 // Add a new item
-router.post('/', upload.single('file'), async (req,res,next) => {
+router.post('/', upload.single('file'), async (req, res, next) => {
     try {
 
         //Step 3: task 1 - insert code here
@@ -67,7 +67,7 @@ router.post('/', upload.single('file'), async (req,res,next) => {
 });
 
 // Get a single secondChanceItem by ID
-router.get('/:id', async (req,res,next) => {
+router.get('/:id', async(req, res, next) => {
     try {
         //Step 4: task 1 - insert code here
         const db = await connectToDatabase();
@@ -82,12 +82,12 @@ router.get('/:id', async (req,res,next) => {
 
         res.json(secondChanceItem)
     } catch (e) {
-        next(e);
+        next(e)
     }
 });
 
 // Update and existing item
-router.put('/:id', async (req,res,next) => {
+router.put('/:id', async(req, res, next) => {
     try {
         //Step 5: task 1 - insert code here
         const db = await connectToDatabase()
@@ -125,7 +125,7 @@ router.put('/:id', async (req,res,next) => {
 });
 
 // Delete an existing item
-router.delete('/:id', async (req,res,next) => {
+router.delete('/:id', async(req, res, next) => {
     try {
         //Step 6: task 1 - insert code here
         const db = await connectToDatabase()
@@ -142,8 +142,8 @@ router.delete('/:id', async (req,res,next) => {
         await collection.deleteOne({ id })
         res.json({ "deleted": "success" })
     } catch (e) {
-        next(e);
+        next(e)
     }
 });
 
-module.exports = router;
+module.exports = router
